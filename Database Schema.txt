@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://vendia.net/schemas/demos/co2-tracker-template.json",
+  "title": "CO2 Emissions",
+  "description": "Tracks the carbon emissions from multiple suppliers through different transportation methods",
+ 
+  "x-vendia-acls": {
+    "MotorAcl": {
+      "type": "Motor"
+    },
+    "Battery": {
+      "type": "Battery"
+    },
+    "Transportation": {
+      "type": "Transportation"
+    }
+  },
+
+  "type": "object",
+  "properties": {
+    
+    "Motor": {
+      "description": "A simple motor to power various tools",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          
+          "PartNumber": {
+            "description": "Part Number",
+            "type": "string"
+          },
+         
+          "SerialNumber": {
+            "description": "Serial Number",
+            "type": "string"
+          },
+         
+          "co2": {
+            "description": "Total co2 for transportation of part, measured in ppm",
+            "type": "number"
+          },
+         
+          "dateManufactured": {
+            "description": "Date part was manufactured",
+            "type": "string",
+            "format": "date"
+          },
+         
+          "costManufactured": {
+            "description": "Cost of manufacturing part",
+            "type": "number"
+          },
+         
+          "salesPrice": {
+            "description": "Sales price of part",
+            "type": "number"
+          }
+          
+        }
+      }
+    },
+    
+    "Battery": {
+      "description": "Battery information",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+         
+          "partNumber": {
+            "description": "Part Number",
+            "type": "string"
+          },
+        
+          "serialNumber": {
+            "description": "Serial number for part",
+            "type": "string"
+          },
+         
+          "co2": {
+            "description": "Total co2 for transportation of part, measured in ppm",
+            "type": "number"
+          },
+         
+          "dateManufactured": {
+            "description": "Date part was manufactured",
+            "type": "string",
+            "format": "date"
+          },
+         
+          "costManufactured": {
+            "description": "Cost of manufacturing part",
+            "type": "number"
+          },
+         
+          "salesPrice": {
+            "description": "Sales price of part",
+            "type": "number"
+          }
+
+        }
+      }
+    },
+
+    "Transportation": {
+      "description": "Transport information",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          
+          "transportationMethod":{
+            "type": "string",
+            "enum": [
+              "ground",
+              "ship"
+            ]
+          },
+         
+          "vehicleId": {
+            "description": "Vehicle id, whether it be a truck,ship, or plane",
+            "type": "string"
+          },
+         
+          "shipmentId": {
+            "description": "Shipment id",
+            "type": "string"
+          },
+         
+          "co2": {
+            "description": "Carbon output for transportation (type * distance)",
+            "type": "number"
+          },
+          
+          "dateShipped": {
+            "description": "Date part was shipped",
+            "type": "string",
+            "format": "date"
+          },
+         
+          "dateArrived": {
+            "description": "Date part arrived",
+            "type": "string",
+            "format": "date"
+          },
+        
+          "bill": {
+            "description": "Bill to customer",
+            "type": "string"
+          }
+
+        }
+      }
+    }
+  }
+}
