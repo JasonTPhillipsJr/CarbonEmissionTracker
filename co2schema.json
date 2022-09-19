@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://vendia.net/schemas/demos/co2-tracker-template.json",
+  "$id": "https://raw.githubusercontent.com/JasonTPhillipsJr/CarbonEmissionTracker/main/co2schema.json",
   "title": "CO2 Emissions",
   "description": "Tracks the carbon emissions from multiple suppliers through different transportation methods",
   "x-vendia-acls": {
